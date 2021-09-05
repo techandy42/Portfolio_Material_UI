@@ -1,0 +1,5 @@
+export const homePageHeight = '100vh'
+export const aboutPageHeight = '100vh'
+export const projectsPageHeight = '100vh'
+export const techPageHeight = '100vh'
+export const contactPageHeight = '100vh'
