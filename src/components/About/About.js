@@ -11,7 +11,7 @@ export default function About() {
       <Container className={classes.container}>
         <div className={classes.sectionDesktop}>
           <Grid container spacing={10} alignItems="center" justifyContent="center">
-            <Grid item md={6}>
+            <Grid item md={8}>
               <Typography variant="h1" paragraph>
                 About Me
               </Typography>
@@ -24,10 +24,10 @@ export default function About() {
               </Typography>
               <Typography variant="h6" className={classes.paragraph} paragraph>
                 To me, web development is like a subway. The UI, front-end, back-end, and database stack together to make an awesome
-                application, and you also get to taste the pain of debugging like Jalapeño in your sandwich :)
+                application, and you also get to taste the pain of debugging like jalapeño in your sandwich :)
               </Typography>
             </Grid>
-            <Grid item md={6}>
+            <Grid item md={4}>
               <img src={myPicture} className={classes.myPictureLarge} />
             </Grid>
           </Grid>

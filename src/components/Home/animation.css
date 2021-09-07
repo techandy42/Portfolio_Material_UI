@@ -1,9 +1,4 @@
-body {
-  background-color: purple;
-}
-
 .reactImage {
-  /* background-color: navy; */
   border-radius: 50%;
   animation-name: react;
   animation-iteration-count: infinite;
