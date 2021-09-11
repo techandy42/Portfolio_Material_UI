@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
@@ -17,10 +17,15 @@ import LibraryBooksOutlinedIcon from '@material-ui/icons/LibraryBooksOutlined'
 import BuildOutlinedIcon from '@material-ui/icons/BuildOutlined'
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined'
 import useStyles from './styles'
+import { HOME, ABOUT, PROJECTS, TECH, CONTACT } from '../../constants/pageNames'
+import { homePageHeight, aboutPageHeight, projectsPageHeight, techPageHeight, contactPageHeight } from '../../constants/pageHeights'
+
+const pageHeight = window.innerHeight
+let scrollAmount = 0
 
 export default function Navbar() {
   const classes = useStyles()
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
 
   const handleMobileMenuClose = () => {
@@ -33,6 +38,53 @@ export default function Navbar() {
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget)
+  }
+
+  const scroll = (pageName) => {
+    switch (pageName) {
+      case HOME:
+        scrollAmount = 0
+        console.log(scrollAmount)
+        window.scroll({ top: scrollAmount, behavior: 'smooth' })
+        break
+      case ABOUT:
+        scrollAmount = (pageHeight * Number(homePageHeight.slice(0, homePageHeight.length - 2))) / 100
+        console.log(scrollAmount)
+        window.scroll({ top: scrollAmount, behavior: 'smooth' })
+        break
+      case PROJECTS:
+        scrollAmount =
+          (pageHeight *
+            (Number(homePageHeight.slice(0, homePageHeight.length - 2)) + Number(aboutPageHeight.slice(0, aboutPageHeight.length - 2)))) /
+          100
+        console.log(scrollAmount)
+        window.scroll({ top: scrollAmount, behavior: 'smooth' })
+        break
+      case TECH:
+        scrollAmount =
+          (pageHeight *
+            (Number(homePageHeight.slice(0, homePageHeight.length - 2)) +
+              Number(aboutPageHeight.slice(0, aboutPageHeight.length - 2)) +
+              Number(projectsPageHeight.slice(0, projectsPageHeight.length - 2)))) /
+          100
+        console.log(scrollAmount)
+        window.scroll({ top: scrollAmount, behavior: 'smooth' })
+        break
+      case CONTACT:
+        scrollAmount =
+          (pageHeight *
+            (Number(homePageHeight.slice(0, homePageHeight.length - 2)) +
+              Number(aboutPageHeight.slice(0, aboutPageHeight.length - 2)) +
+              Number(projectsPageHeight.slice(0, projectsPageHeight.length - 2)) +
+              Number(techPageHeight.slice(0, techPageHeight.length - 2)))) /
+          100
+        console.log(scrollAmount)
+        window.scroll({ top: scrollAmount, behavior: 'smooth' })
+        break
+      default:
+        scrollAmount = 0
+        window.scroll({ top: scrollAmount })
+    }
   }
 
   const menuId = 'primary-search-account-menu'
@@ -60,31 +112,31 @@ export default function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem onClick={() => scroll(HOME)}>
         <IconButton aria-label="home icon" color="inherit">
           <HomeIcon fontSize="large" />
         </IconButton>
         <Typography variant="subtitle1">Home</Typography>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => scroll(ABOUT)}>
         <IconButton aria-label="about icon" color="inherit">
           <AccountCircleIcon fontSize="large" />
         </IconButton>
         <Typography variant="subtitle1">About</Typography>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => scroll(PROJECTS)}>
         <IconButton aria-label="projects icon" color="inherit">
           <LibraryBooksIcon fontSize="large" />
         </IconButton>
         <Typography variant="subtitle1">Projects</Typography>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => scroll(TECH)}>
         <IconButton aria-label="tech icon" color="inherit">
           <BuildIcon fontSize="large" />
         </IconButton>
         <Typography variant="subtitle1">Tech</Typography>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => scroll(CONTACT)}>
         <IconButton aria-label="contact icon" color="inherit">
           <EmailIcon fontSize="large" />
         </IconButton>
@@ -109,19 +161,19 @@ export default function Navbar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="home icon" color="inherit">
+            <IconButton aria-label="home icon" color="inherit" onClick={() => scroll(HOME)}>
               <HomeOutlinedIcon />
             </IconButton>
-            <IconButton aria-label="about icon" color="inherit">
+            <IconButton aria-label="about icon" color="inherit" onClick={() => scroll(ABOUT)}>
               <AccountCircleOutlinedIcon />
             </IconButton>
-            <IconButton aria-label="projects icon" color="inherit">
+            <IconButton aria-label="projects icon" color="inherit" onClick={() => scroll(PROJECTS)}>
               <LibraryBooksOutlinedIcon />
             </IconButton>
-            <IconButton aria-label="tech icon" color="inherit">
+            <IconButton aria-label="tech icon" color="inherit" onClick={() => scroll(TECH)}>
               <BuildOutlinedIcon />
             </IconButton>
-            <IconButton aria-label="contact icon" color="inherit">
+            <IconButton aria-label="contact icon" color="inherit" onClick={() => scroll(CONTACT)}>
               <EmailOutlinedIcon />
             </IconButton>
           </div>

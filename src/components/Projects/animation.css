@@ -1,0 +1,20 @@
+.cardProject {
+  background: linear-gradient(135deg, #ffa726, #ffa726, #ffffff, #42a5f5, #42a5f5);
+  background-size: 500% 500%;
+}
+
+.cardProject:hover {
+  animation-name: cardProject;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+}
+
+@keyframes cardProject {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}

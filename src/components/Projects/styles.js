@@ -7,20 +7,25 @@ const useStyles = makeStyles((theme) => ({
     height: projectsPageHeight,
   },
   container: {
-    marginLeft: '10%',
-    marginRight: '10%',
+    paddingLeft: '10%',
+    paddingRight: '10%',
+    paddingTop: '6rem',
   },
   sectionDesktop: {
     display: 'none',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'flex',
     },
   },
   sectionMobile: {
     display: 'flex',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
+  },
+  cardTitle: {
+    paddingTop: '1rem',
+    paddingBottom: '1rem',
   },
 }))
 

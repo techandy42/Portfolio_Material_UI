@@ -1,0 +1,13 @@
+.cardTech:hover {
+  animation-name: cardTech;
+  animation-fill-mode: forwards;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+}
+
+@keyframes cardTech {
+  100% {
+    background: #616161;
+    color: #fafafa;
+  }
+}

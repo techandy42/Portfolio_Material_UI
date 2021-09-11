@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Grid, Typography } from '@material-ui/core'
-import {} from '@material-ui/icons'
 import useStyles from './styles'
 import myPicture from '../../images/myPicture/My_Picture.jpg'
 
